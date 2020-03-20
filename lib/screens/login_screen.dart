@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
               if (errorMessage != null)
                 return showAlertDialog(context , errorMessage);
               });
-              
+              errorMessage = null;
           },
           child: Text(AppLocalizations.of(context).translate('login')),
           shape: RoundedRectangleBorder(
