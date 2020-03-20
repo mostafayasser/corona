@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import './user.dart';
@@ -56,6 +55,15 @@ Future<String> loginUser(email, password) async {
     }
   }
 
+  return errorMessage;
+}
+
+Future<String> sendPasswordResetEmail(String email) async {
+  try {
+    await _auth.sendPasswordResetEmail(email: email);
+  } catch (error) {
+    errorMessage = error.message;
+  }
   return errorMessage;
 }
 

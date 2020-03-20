@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import './signup_screen.dart';
-import '../widgets/text_field.dart';
 import './main_screen.dart';
+import './forget_password.dart';
+import '../widgets/text_field.dart';
 import '../models/auth.dart';
 import '../models/app_localizations.dart';
+import '../models/dialog.dart';
 
 class LoginScreen extends StatefulWidget {
   static const route = "/loginScreen";
@@ -14,7 +16,7 @@ class LoginScreen extends StatefulWidget {
 
 final _emailController = TextEditingController();
 final _passwordController = TextEditingController();
-String errorMessage;
+String errorMess;
 bool isLoading = false;
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -60,10 +62,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 .then((value) {
               setState(() {
                 isLoading = false;
-                errorMessage = value;
+                errorMess = value;
               });
-              if (errorMessage != null)
-                return showAlertDialog(context, errorMessage);
+              if (errorMess != null)
+                return showAlertDialog(context, errorMess , AppLocalizations.of(context).translate('error'));
               else{
                 _emailController.text = "";
                 _passwordController.text = "";
@@ -132,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Align(
         alignment: FractionalOffset.bottomRight,
         child: FlatButton(
-          onPressed: () {},
+          onPressed: () => Navigator.of(context).pushReplacementNamed(ForgetPasswordScreen.route),
           child: Text(AppLocalizations.of(context).translate('forgot_password'),
               style: TextStyle(decoration: TextDecoration.underline)),
         ),
@@ -151,30 +153,5 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  showAlertDialog(BuildContext context, message) {
-    errorMessage = null;
-
-    // set up the button
-    Widget okButton = FlatButton(
-      child: Text(AppLocalizations.of(context).translate('ok')),
-      onPressed: () => Navigator.of(context).pop(),
-    );
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text(AppLocalizations.of(context).translate('error')),
-      content: Text(message),
-      actions: [
-        okButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
+  
 }

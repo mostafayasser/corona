@@ -3,6 +3,7 @@ import '../widgets/text_field.dart';
 import '../models/auth.dart';
 import '../models/user.dart';
 import '../models/app_localizations.dart';
+import '../models/dialog.dart';
 
 class SignupScreen extends StatefulWidget {
   static const route = "/signupScreen";
@@ -123,7 +124,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 errorMessage = value;
               });
               if (errorMessage != null)
-                return showAlertDialog(context, errorMessage);
+                return showAlertDialog(context, errorMessage , AppLocalizations.of(context).translate('error'));
               else {
                 _emailController.text = "";
                 _passwordController.text = "";
@@ -145,28 +146,5 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  showAlertDialog(BuildContext context, message) {
-    // set up the button
-    Widget okButton = FlatButton(
-      child: Text(AppLocalizations.of(context).translate('ok')),
-      onPressed: () => Navigator.of(context).pop(),
-    );
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text(AppLocalizations.of(context).translate('error')),
-      content: Text(message),
-      actions: [
-        okButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
+  
 }

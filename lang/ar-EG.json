@@ -12,7 +12,9 @@
     "ok" : "حسنا",
     "error" : "حدث خطأ",
     "forgot_password" : "نسيت كلمة السر؟",
-    "dont_have_account" : "لا تمتلك حسابا؟ إنشاء حساب"
+    "dont_have_account" : "لا تمتلك حسابا؟ إنشاء حساب",
+    "reset_password" : "أرسل كلمة السر",
+    "reset_password_message" : "تم إرسال كلمة السر إلي البريد الإلكتروني"
     
 
 }
