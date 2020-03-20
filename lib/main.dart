@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         LoginScreen.route: (ctx) => LoginScreen(),
         SignupScreen.route: (ctx) => SignupScreen(),
-        MainScreen.route: (ctx) => MainScreen(),
+        MainScreen.route: (ctx) => MainScreen(changeLocale: changeLocale,),
       },
     );
   }
