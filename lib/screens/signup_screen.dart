@@ -122,7 +122,6 @@ class _SignupScreenState extends State<SignupScreen> {
               if (errorMessage != null)
                 return showAlertDialog(context, errorMessage);
             });
-            errorMessage = null;
           },
           child: Text(AppLocalizations.of(context).translate('signup')),
           shape: RoundedRectangleBorder(

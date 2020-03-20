@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
               if (errorMessage != null)
                 return showAlertDialog(context , errorMessage);
               });
-              errorMessage = null;
+              
           },
           child: Text(AppLocalizations.of(context).translate('login')),
           shape: RoundedRectangleBorder(
@@ -143,7 +143,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   showAlertDialog(BuildContext context , message) {
-
+    errorMessage = null;
+    
   // set up the button
   Widget okButton = FlatButton(
     child: Text(AppLocalizations.of(context).translate('ok')),

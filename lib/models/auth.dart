@@ -1,3 +1,4 @@
+import 'package:corona/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import './user.dart';
@@ -19,6 +20,7 @@ Future<String> registerUser(User user) async {
       'national_id': user.nationalID,
       'phone': user.phone
     });
+    errorMessage = null;
   } catch (error) {
     errorMessage = error.message;
   }
@@ -28,6 +30,7 @@ Future<String> registerUser(User user) async {
 Future<String> loginUser(email, password) async {
   try {
     await _auth.signInWithEmailAndPassword(email: email, password: password);
+    errorMessage = null;
   } catch (error) {
     switch (error.code) {
       case "ERROR_INVALID_EMAIL":
