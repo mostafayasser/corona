@@ -20,45 +20,46 @@ final _nationalIDController = TextEditingController();
 final _phoneNumberController = TextEditingController();
 
 class _SignupScreenState extends State<SignupScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          stops: [0.1, 0.8],
-          colors: [Color(0xFF8FDBB8), Color(0xFF51b5D8)],
+    return SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.1, 0.8],
+            colors: [Color(0xFF8FDBB8), Color(0xFF51b5D8)],
+          ),
         ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: Center(
-            child: _buildForm(_formKey, context),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            child: Center(
+              child: _buildForm(context),
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildForm(key, context) {
+  Widget _buildForm(context) {
     return Form(
-      key: key,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          
           Align(
-            
-            alignment: FractionalOffset.bottomLeft,
+              alignment: FractionalOffset.bottomLeft,
               child: IconButton(
-                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.04),
                   icon: Icon(
-                    (AppLocalizations.of(context).translate('language') == "English") ? Icons.arrow_forward:Icons.arrow_back,
+                    (AppLocalizations.of(context).translate('language') ==
+                            "English")
+                        ? Icons.arrow_forward
+                        : Icons.arrow_back,
                     color: Colors.white,
                   ),
                   onPressed: () => Navigator.of(context).pop())),
@@ -75,18 +76,20 @@ class _SignupScreenState extends State<SignupScreen> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
-          BuildTextField(
-              AppLocalizations.of(context).translate('first_name'), TextInputType.text, _firstNameController),
-          BuildTextField(
-              AppLocalizations.of(context).translate('middle_name'), TextInputType.text, _middleNameController),
-          BuildTextField(AppLocalizations.of(context).translate('last_name'), TextInputType.text, _lastNameController),
-          BuildTextField(
-              AppLocalizations.of(context).translate('phone'), TextInputType.phone, _phoneNumberController),
-          BuildTextField(AppLocalizations.of(context).translate('email'), TextInputType.emailAddress, _emailController),
-          BuildTextField(
-              AppLocalizations.of(context).translate('password'), TextInputType.visiblePassword, _passwordController),
-          BuildTextField(AppLocalizations.of(context).translate('id'), TextInputType.text,
-              _nationalIDController),
+          BuildTextField(AppLocalizations.of(context).translate('first_name'),
+              TextInputType.text, _firstNameController),
+          BuildTextField(AppLocalizations.of(context).translate('middle_name'),
+              TextInputType.text, _middleNameController),
+          BuildTextField(AppLocalizations.of(context).translate('last_name'),
+              TextInputType.text, _lastNameController),
+          BuildTextField(AppLocalizations.of(context).translate('phone'),
+              TextInputType.phone, _phoneNumberController),
+          BuildTextField(AppLocalizations.of(context).translate('email'),
+              TextInputType.emailAddress, _emailController),
+          BuildTextField(AppLocalizations.of(context).translate('password'),
+              TextInputType.visiblePassword, _passwordController),
+          BuildTextField(AppLocalizations.of(context).translate('id'),
+              TextInputType.text, _nationalIDController),
           isLoading ? CircularProgressIndicator() : _buildSubmitButton(context),
         ],
       ),
@@ -121,6 +124,15 @@ class _SignupScreenState extends State<SignupScreen> {
               });
               if (errorMessage != null)
                 return showAlertDialog(context, errorMessage);
+              else {
+                _emailController.text = "";
+                _passwordController.text = "";
+                _phoneNumberController.text = "";
+                _firstNameController.text = "";
+                _middleNameController.text = "";
+                _lastNameController.text = "";
+                _nationalIDController.text = "";
+              }
             });
           },
           child: Text(AppLocalizations.of(context).translate('signup')),

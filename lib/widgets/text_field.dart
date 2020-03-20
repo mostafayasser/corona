@@ -28,6 +28,3 @@ class BuildTextField extends StatelessWidget {
   }
 }
 
-dynamic textFieldData(value){
-  return value;
-}

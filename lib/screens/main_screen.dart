@@ -14,38 +14,47 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          stops: [0.1, 0.8],
-          colors: [Color(0xFF8FDBB8), Color(0xFF51b5D8)],
+    return SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.1, 0.8],
+            colors: [Color(0xFF8FDBB8), Color(0xFF51b5D8)],
+          ),
         ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.2,
-                ),
-                Image.asset(
-                  "assets/images/electropi1++.png",
-                  fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width * 0.4,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.07,
-                ),
-                _buildSubmitButton(context, AppLocalizations.of(context).translate('signup'), SignupScreen.route),
-                _buildSubmitButton(context, AppLocalizations.of(context).translate('login'), LoginScreen.route),
-                _buildSubmitButton(context, AppLocalizations.of(context).translate('language'), null),
-              ],
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                  ),
+                  Image.asset(
+                    "assets/images/electropi1++.png",
+                    fit: BoxFit.cover,
+                    width: MediaQuery.of(context).size.width * 0.4,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.07,
+                  ),
+                  _buildSubmitButton(
+                      context,
+                      AppLocalizations.of(context).translate('signup'),
+                      SignupScreen.route),
+                  _buildSubmitButton(
+                      context,
+                      AppLocalizations.of(context).translate('login'),
+                      LoginScreen.route),
+                  _buildSubmitButton(context,
+                      AppLocalizations.of(context).translate('language'), null),
+                ],
+              ),
             ),
           ),
         ),
@@ -65,17 +74,14 @@ class _MainScreenState extends State<MainScreen> {
           onPressed: () {
             if (route != null)
               Navigator.of(context).pushNamed(route);
-            else{
-                if(AppLocalizations.of(context).translate('language') == "English"){
-                  widget.changeLocale(Locale('en' , 'US'));
-                }
-                  
-                else {
-                  widget.changeLocale(Locale('ar' , 'EG'));
-                }
-
+            else {
+              if (AppLocalizations.of(context).translate('language') ==
+                  "English") {
+                widget.changeLocale(Locale('en', 'US'));
+              } else {
+                widget.changeLocale(Locale('ar', 'EG'));
+              }
             }
-              
           },
           child: Text(title),
           shape: RoundedRectangleBorder(
