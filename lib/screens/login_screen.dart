@@ -20,7 +20,6 @@ String errorMess;
 bool isLoading = false;
 
 class _LoginScreenState extends State<LoginScreen> {
-  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Center(
-              child: _buildForm( context),
+              child: _buildForm(context),
             ),
           ),
         ),
@@ -45,45 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildSubmitButton(context) {
-    return Padding(
-      padding: EdgeInsets.all(10.0),
-      child: ButtonTheme(
-        buttonColor: Colors.white70,
-        minWidth: MediaQuery.of(context).size.width * 0.6,
-        height: MediaQuery.of(context).size.height * 0.08,
-        child: RaisedButton(
-          textColor: Color(0xFF45746E),
-          onPressed: () {
-            setState(() {
-              isLoading = true;
-            });
-            loginUser(_emailController.text, _passwordController.text)
-                .then((value) {
-              setState(() {
-                isLoading = false;
-                errorMess = value;
-              });
-              if (errorMess != null)
-                return showAlertDialog(context, errorMess , AppLocalizations.of(context).translate('error'));
-              else{
-                _emailController.text = "";
-                _passwordController.text = "";
-              }
-                 
-            });
-          },
-          child: Text(AppLocalizations.of(context).translate('login')),
-          shape: RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(30.0),
-            side: BorderSide(color: Color(0xFF45746E)),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildForm( context) {
+  Widget _buildForm(context) {
     return Form(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -128,13 +89,52 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  Widget _buildSubmitButton(context) {
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: ButtonTheme(
+        buttonColor: Colors.white70,
+        minWidth: MediaQuery.of(context).size.width * 0.6,
+        height: MediaQuery.of(context).size.height * 0.08,
+        child: RaisedButton(
+          textColor: Color(0xFF45746E),
+          onPressed: () {
+            setState(() {
+              isLoading = true;
+            });
+            loginUser(_emailController.text, _passwordController.text)
+                .then((value) {
+              setState(() {
+                isLoading = false;
+                errorMess = value;
+              });
+              if (errorMess != null)
+                return showAlertDialog(context, errorMess,
+                    AppLocalizations.of(context).translate('error'));
+              else {
+                _emailController.text = "";
+                _passwordController.text = "";
+              }
+            });
+          },
+          child: Text(AppLocalizations.of(context).translate('login')),
+          shape: RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(30.0),
+            side: BorderSide(color: Color(0xFF45746E)),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildForgotPasswordtButton() {
     return Padding(
       padding: EdgeInsets.all(10.0),
       child: Align(
         alignment: FractionalOffset.bottomRight,
         child: FlatButton(
-          onPressed: () => Navigator.of(context).pushReplacementNamed(ForgetPasswordScreen.route),
+          onPressed: () => Navigator.of(context)
+              .pushReplacementNamed(ForgetPasswordScreen.route),
           child: Text(AppLocalizations.of(context).translate('forgot_password'),
               style: TextStyle(decoration: TextDecoration.underline)),
         ),
@@ -152,6 +152,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
-  
 }

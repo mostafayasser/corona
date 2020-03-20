@@ -36,7 +36,24 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.001,
+                  ),
+                  Align(
+              alignment: FractionalOffset.bottomLeft,
+              child: IconButton(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.06),
+                  icon: Icon(
+                    (AppLocalizations.of(context).translate('language') ==
+                            "English")
+                        ? Icons.arrow_forward
+                        : Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  onPressed: () => Navigator.of(context)
+                      .pushReplacementNamed(LoginScreen.route))),
+                      SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   Image.asset(
                     "assets/images/electropi1++.png",
