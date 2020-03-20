@@ -1,0 +1,18 @@
+{
+    "email" : "Email",
+    "password" : "Password",
+    "phone" : "Phone Number",
+    "id" : "National ID or Passport number",
+    "first_name" : "First name",
+    "middle_name" : "Middle name",
+    "last_name" : "Last name",
+    "signup" : "Sign up",
+    "login" : "Login",
+    "language" : "عربي",
+    "ok" : "OK",
+    "error" : "An error has occured",
+    "forgot_password" : "Forgot your password?",
+    "dont_have_account" : "Don't have account? Sign up"
+    
+
+}
