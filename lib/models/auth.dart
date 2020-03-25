@@ -2,22 +2,25 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import './user.dart';
 
-final Firestore _firestore = Firestore.instance;
+final  _firestore = Firestore.instance;
 final FirebaseAuth _auth = FirebaseAuth.instance;
+FirebaseUser currentUser;
 String errorMessage;
 
 Future<String> registerUser(User user) async {
   try {
     await _auth.createUserWithEmailAndPassword(
         email: user.email, password: user.password);
-    await _firestore.collection('users').add({
+    await _firestore.collection('users').document("${user.email}").setData({
       'email': user.email,
       'password': user.password,
       'first_name': user.firstName,
       'middle_name': user.middleName,
       'last_name': user.lastName,
       'national_id': user.nationalID,
-      'phone': user.phone
+      'phone': user.phone,
+      'status': user.status,
+      'score': user.score
     });
     errorMessage = null;
   } catch (error) {
@@ -67,6 +70,33 @@ Future<String> sendPasswordResetEmail(String email) async {
   return errorMessage;
 }
 
+Future<User> getCurrentUser() async {
+  currentUser = await _auth.currentUser();
+  String email = currentUser.email;
+  DocumentSnapshot doc =
+      await _firestore.collection('users').document('$email').get();
+  User user = User(
+      email: doc.data['email'],
+      password: doc.data['password'],
+      phone: doc.data['phone'],
+      firstName: doc.data['first_name'],
+      middleName: doc.data['middle_name'],
+      lastName: doc.data['last_name'],
+      score: doc.data['score'],
+      status: doc.data['status'],
+      nationalID: doc.data['national_id'],
+      );
+      return user;
+}
+
+void updateUserStatus( score, status) async {
+  currentUser = await _auth.currentUser();
+  String email = currentUser.email;
+  await _firestore
+      .collection('users')
+      .document('$email')
+      .updateData({'status': status, 'score': score});
+}
 /*
 
   catch (e) {

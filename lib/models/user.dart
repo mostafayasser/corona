@@ -8,7 +8,9 @@ class User {
       phone,
       email,
       password,
-      nationalID;
+      nationalID,
+      status;
+      int score;
   User(
       {@required this.firstName,
       @required this.email,
@@ -16,7 +18,10 @@ class User {
       @required this.middleName,
       @required this.nationalID,
       @required this.password,
-      @required this.phone});
+      @required this.phone,
+      @required this.status,
+      @required this.score,
+      });
 }
 
 

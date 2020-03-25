@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './signup_screen.dart';
 import './main_screen.dart';
+import './test_screen.dart';
 import './forget_password.dart';
 import '../widgets/text_field.dart';
 import '../models/auth.dart';
@@ -114,6 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
               else {
                 _emailController.text = "";
                 _passwordController.text = "";
+                Navigator.of(context).pushReplacementNamed(TestScreen.route);
               }
             });
           },

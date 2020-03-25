@@ -4,6 +4,7 @@ import '../models/auth.dart';
 import '../models/user.dart';
 import '../models/app_localizations.dart';
 import '../models/dialog.dart';
+import './login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   static const route = "/signupScreen";
@@ -117,7 +118,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     firstName: _firstNameController.text,
                     middleName: _middleNameController.text,
                     lastName: _lastNameController.text,
-                    nationalID: _nationalIDController.text))
+                    nationalID: _nationalIDController.text,
+                    status: "0xFF00FF00",
+                    score: 0
+                    ))
                 .then((value) {
               setState(() {
                 isLoading = false;
@@ -133,6 +137,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 _middleNameController.text = "";
                 _lastNameController.text = "";
                 _nationalIDController.text = "";
+                Navigator.of(context).pushReplacementNamed(LoginScreen.route);
               }
             });
           },
