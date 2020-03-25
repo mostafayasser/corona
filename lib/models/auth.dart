@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import './user.dart';
 
+
+
 final  _firestore = Firestore.instance;
 final FirebaseAuth _auth = FirebaseAuth.instance;
 FirebaseUser currentUser;
@@ -18,9 +20,11 @@ Future<String> registerUser(User user) async {
       'middle_name': user.middleName,
       'last_name': user.lastName,
       'national_id': user.nationalID,
+
       'phone': user.phone,
       'status': user.status,
       'score': user.score
+
     });
     errorMessage = null;
   } catch (error) {
@@ -69,6 +73,15 @@ Future<String> sendPasswordResetEmail(String email) async {
   }
   return errorMessage;
 }
+Future getUser(String uid) async {
+  try {
+    var userData = await _firestore.document(uid).get();
+    return User.fromData(userData.data);
+  } catch (e) {
+    return e.message;
+  }
+}
+
 
 Future<User> getCurrentUser() async {
   currentUser = await _auth.currentUser();

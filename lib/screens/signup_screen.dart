@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/text_field.dart';
 import '../models/auth.dart';
 import '../models/user.dart';
+import './Instructions.dart';
 import '../models/app_localizations.dart';
 import '../models/dialog.dart';
 import './login_screen.dart';
@@ -130,6 +131,9 @@ class _SignupScreenState extends State<SignupScreen> {
               if (errorMessage != null)
                 return showAlertDialog(context, errorMessage , AppLocalizations.of(context).translate('error'));
               else {
+
+                
+
                 _emailController.text = "";
                 _passwordController.text = "";
                 _phoneNumberController.text = "";
@@ -137,7 +141,11 @@ class _SignupScreenState extends State<SignupScreen> {
                 _middleNameController.text = "";
                 _lastNameController.text = "";
                 _nationalIDController.text = "";
-                Navigator.of(context).pushReplacementNamed(LoginScreen.route);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Instructions()),
+                );
+
               }
             });
           },

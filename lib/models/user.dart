@@ -2,13 +2,15 @@ import 'package:flutter/foundation.dart';
 
 
 class User {
-  String firstName,
+
+
+  final String firstName,
       middleName,
       lastName,
       phone,
       email,
       password,
-      nationalID,
+     nationalID,
       status;
       int score;
   User(
@@ -22,6 +24,7 @@ class User {
       @required this.status,
       @required this.score,
       });
+
 }
 
 
