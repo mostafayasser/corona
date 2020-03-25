@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import './user.dart';
 
+
 final Firestore _firestore = Firestore.instance;
 final FirebaseAuth _auth = FirebaseAuth.instance;
 String errorMessage;
@@ -17,6 +18,7 @@ Future<String> registerUser(User user) async {
       'middle_name': user.middleName,
       'last_name': user.lastName,
       'national_id': user.nationalID,
+      'status': user.status,
       'phone': user.phone
     });
     errorMessage = null;
@@ -66,6 +68,15 @@ Future<String> sendPasswordResetEmail(String email) async {
   }
   return errorMessage;
 }
+Future getUser(String uid) async {
+  try {
+    var userData = await _firestore.document(uid).get();
+    return User.fromData(userData.data);
+  } catch (e) {
+    return e.message;
+  }
+}
+
 
 /*
 

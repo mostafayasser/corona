@@ -1,11 +1,14 @@
+import 'package:corona/screens/HomePage.dart';
 import 'package:flutter/material.dart';
 import './signup_screen.dart';
 import './main_screen.dart';
+import './Instructions.dart';
 import './forget_password.dart';
 import '../widgets/text_field.dart';
 import '../models/auth.dart';
 import '../models/app_localizations.dart';
 import '../models/dialog.dart';
+
 
 class LoginScreen extends StatefulWidget {
   static const route = "/loginScreen";
@@ -57,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       top: MediaQuery.of(context).size.height * 0.06),
                   icon: Icon(
                     (AppLocalizations.of(context).translate('language') ==
-                            "English")
+                        "English")
                         ? Icons.arrow_forward
                         : Icons.arrow_back,
                     color: Colors.white,
@@ -112,8 +115,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 return showAlertDialog(context, errorMess,
                     AppLocalizations.of(context).translate('error'));
               else {
-                _emailController.text = "";
-                _passwordController.text = "";
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
               }
             });
           },

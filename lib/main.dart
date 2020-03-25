@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import './screens/main_screen.dart';
+import './screens/HomePage.dart';
 import './screens/forget_password.dart';
 import 'models/app_localizations.dart';
 
@@ -25,10 +26,21 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+  bool selected()
+  {
+    GestureDetector(
+        onTap: () {
+      setState(() {
+        return true;
+      });
+    },
+    );
+    return false;
+  }
 
-  
   @override
   Widget build(BuildContext context) {
+
     void changeLocale(locale) {
       setState(() {
         print(locale);
@@ -78,6 +90,7 @@ class _MyAppState extends State<MyApp> {
         LoginScreen.route: (ctx) => LoginScreen(),
         SignupScreen.route: (ctx) => SignupScreen(),
         MainScreen.route: (ctx) => MainScreen(changeLocale: changeLocale,),
+        HomePage.route: (ctx) => HomePage(changeLocale: changeLocale,),
         ForgetPasswordScreen.route : (ctx) => ForgetPasswordScreen(),
       },
     );

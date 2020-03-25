@@ -1,11 +1,14 @@
+import 'package:corona/screens/CurrentReport.dart';
+import 'package:corona/screens/DailyReport.dart';
 import 'package:flutter/material.dart';
 import './Instructions.dart';
 import '../models/app_localizations.dart';
-import './main_screen.dart';
+import '../screens/Diagnosis.dart';
 class HomePage extends StatefulWidget {
 
   static const route = "/HomePage";
-
+  final Function changeLocale;
+  HomePage({this.changeLocale});
 
   @override
 
@@ -18,7 +21,8 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-      return
+
+    return
         Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -50,31 +54,22 @@ class HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-          new Column
-          (
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Align(
-                  alignment: FractionalOffset.bottomLeft,
-                  child: IconButton(
-                      padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * 0.06),
-                      icon: Icon(
-                        (AppLocalizations.of(context).translate('language') ==
-                            "English")
-                            ? Icons.arrow_forward
-                            : Icons.arrow_back,
-                        color: Colors.white,
-                      ),
-                      onPressed: () => Navigator.of(context)
-                          .pushReplacementNamed(MainScreen.route))),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.06,
+                height: MediaQuery.of(context).size.height * 0.005,
               ),
 
-      ],
-    ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
+              ),
+
+              buildSubmitButton(context,
+                  AppLocalizations.of(context).translate('language'), null),
+            ],
+          ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -82,10 +77,10 @@ class HomePageState extends State<HomePage> {
                     elevation: 0.0,
 
                     padding: EdgeInsets.only(
-                         bottom: 0.0, right: 5.0 , left: 30.0 , top: 0.0),
+                         bottom: 0.0, right: 15.0 , left: 30.0 , top: 0.0),
                     onPressed: () =>  (Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Instructions()))),
+                        MaterialPageRoute(builder: (context) => Diagnosis()))),
                     child: new Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -113,7 +108,7 @@ class HomePageState extends State<HomePage> {
                           top: 0, bottom: 0, right: 0.0, left: 5.0),
                       onPressed: () =>  (Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Instructions()))),
+                          MaterialPageRoute(builder: (context) => CurrentReport()))),
                       child: new Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
@@ -134,7 +129,7 @@ class HomePageState extends State<HomePage> {
               children: <Widget>[
             Padding(
             padding: const EdgeInsets.only(
-                left: 40.0, right: 0.0, top: 310.0, bottom: 0.0),
+                left: 40.0, right: 10.0, top: 310.0, bottom: 0.0),
             child: new RaisedButton(
 
                     elevation: 0.0,
@@ -196,5 +191,35 @@ class HomePageState extends State<HomePage> {
 
     );
 
+  }
+  Widget buildSubmitButton(context, title, route) {
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: ButtonTheme(
+        buttonColor: Colors.white70,
+        minWidth: MediaQuery.of(context).size.width * 0.3,
+        height: MediaQuery.of(context).size.height * 0.08,
+        child: RaisedButton(
+          textColor: Color(0xFF45746E),
+          onPressed: () {
+            if (route != null)
+              Navigator.of(context).pushNamed(route);
+            else {
+              if (AppLocalizations.of(context).translate('language') ==
+                  "English") {
+                widget.changeLocale(Locale('en', 'US'));
+              } else {
+                widget.changeLocale(Locale('ar', 'EG'));
+              }
+            }
+          },
+          child: Text(title),
+          shape: RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(30.0),
+            side: BorderSide(color: Color(0xFF45746E)),
+          ),
+        ),
+      ),
+    );
   }
 }

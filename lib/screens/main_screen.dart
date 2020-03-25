@@ -1,3 +1,4 @@
+import 'package:corona/screens/HomePage.dart';
 import 'package:flutter/material.dart';
 import '../models/app_localizations.dart';
 import 'login_screen.dart';
@@ -6,15 +7,25 @@ import 'signup_screen.dart';
 class MainScreen extends StatefulWidget {
   static const route = "/mainScreen";
   final Function changeLocale;
+  static int status = 1;
+  static List<String> listAn = <String>["x" , "x"];
+  static bool postive()
+  {
+    return MainScreen.status >= 7 ? true : false;
+  }
   MainScreen({this.changeLocale});
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
-
+bool selected = false;
 class _MainScreenState extends State<MainScreen> {
   @override
+
   Widget build(BuildContext context) {
+
     return SafeArea(
+
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -25,16 +36,22 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         child: Scaffold(
+
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Center(
+
               child: Column(
+
+
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.2,
                   ),
+
+
                   Image.asset(
                     "assets/images/electropi1++.png",
                     fit: BoxFit.cover,
@@ -43,15 +60,15 @@ class _MainScreenState extends State<MainScreen> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.07,
                   ),
-                  _buildSubmitButton(
+                  buildSubmitButton(
                       context,
                       AppLocalizations.of(context).translate('signup'),
                       SignupScreen.route),
-                  _buildSubmitButton(
+                  buildSubmitButton(
                       context,
                       AppLocalizations.of(context).translate('login'),
                       LoginScreen.route),
-                  _buildSubmitButton(context,
+                  buildSubmitButton(context,
                       AppLocalizations.of(context).translate('language'), null),
                 ],
               ),
@@ -59,10 +76,12 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
+
     );
+
   }
 
-  Widget _buildSubmitButton(context, title, route) {
+  Widget buildSubmitButton(context, title, route) {
     return Padding(
       padding: EdgeInsets.all(10.0),
       child: ButtonTheme(
