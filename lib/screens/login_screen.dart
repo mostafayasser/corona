@@ -115,10 +115,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 return showAlertDialog(context, errorMess,
                     AppLocalizations.of(context).translate('error'));
               else {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
+                Navigator.of(context)
+                    .pushReplacementNamed(HomePage.route);
               }
             });
           },
