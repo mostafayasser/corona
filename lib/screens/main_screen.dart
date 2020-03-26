@@ -8,7 +8,7 @@ class MainScreen extends StatefulWidget {
   static const route = "/mainScreen";
   final Function changeLocale;
   static int status = 1;
-  static List<String> listAn = <String>["x" , "x"];
+  static List<String> listAn = <String>[];
   static bool postive()
   {
     return MainScreen.status >= 7 ? true : false;
