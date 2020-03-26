@@ -38,6 +38,11 @@ dependencies:
   scoped_model: "^0.3.0"
   easy_localization:
 
+
+
+  google_maps_flutter: 
+  location:
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter

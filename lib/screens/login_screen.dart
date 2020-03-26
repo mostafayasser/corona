@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import './signup_screen.dart';
 import './main_screen.dart';
 import './Instructions.dart';
+import './test_screen.dart';
 import './forget_password.dart';
 import '../widgets/text_field.dart';
 import '../models/auth.dart';
@@ -115,8 +116,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 return showAlertDialog(context, errorMess,
                     AppLocalizations.of(context).translate('error'));
               else {
+
                 Navigator.of(context)
                     .pushReplacementNamed(HomePage.route);
+
+                _emailController.text = "";
+                _passwordController.text = "";
+                
+
               }
             });
           },

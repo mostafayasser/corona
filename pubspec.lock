@@ -179,6 +179,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+
   flutter_page_indicator:
     dependency: "direct main"
     description:
@@ -193,6 +194,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.6"
+
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.6"
+
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -203,6 +213,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+
   glob:
     dependency: transitive
     description:
@@ -217,6 +228,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.0+3"
+
+  google_maps_flutter:
+    dependency: "direct main"
+    description:
+      name: google_maps_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.25"
+
   http:
     dependency: transitive
     description:
@@ -244,6 +264,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
+
     version: "0.16.0"
   intl_translation:
     dependency: "direct main"
@@ -252,6 +273,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.9"
+
   js:
     dependency: transitive
     description:
@@ -259,6 +281,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.1+1"
+  location:
+    dependency: "direct main"
+    description:
+      name: location
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.5.4"
   matcher:
     dependency: transitive
     description:
@@ -417,6 +446,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
+
     version: "0.2.11"
   transformer_page_view:
     dependency: transitive
@@ -424,7 +454,9 @@ packages:
       name: transformer_page_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.6"
+   
+    version: "0.2.15"
+
   typed_data:
     dependency: transitive
     description:
@@ -461,5 +493,7 @@ packages:
     source: hosted
     version: "2.2.0"
 sdks:
-  dart: ">=2.7.0 <3.0.0"
-  flutter: ">=1.12.13+hotfix.4 <2.0.0"
+
+  dart: ">=2.7.0-dev <3.0.0"
+  flutter: ">=1.12.13+hotfix.5 <2.0.0"
+
