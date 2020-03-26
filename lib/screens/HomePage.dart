@@ -1,4 +1,7 @@
 import 'package:corona/screens/CurrentReport.dart';
+
+import 'package:corona/screens/ContactUS.dart';
+
 import 'package:flutter/material.dart';
 import './Instructions.dart';
 import '../models/app_localizations.dart';
@@ -138,9 +141,11 @@ class HomePageState extends State<HomePage> {
                            borderRadius: new BorderRadius.circular(0.0)),
                       padding: EdgeInsets.only(
                           top: 0, bottom: 0, right: 0.0, left: 0.0),
-                      onPressed: () =>   (Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => MapScreen()))),
+
+                      onPressed: () =>  (Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ContactUS()))),
+
                       child: new Row(
 
                         mainAxisSize: MainAxisSize.min,

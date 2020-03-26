@@ -73,7 +73,6 @@ class _MainDiagnosisState extends State<MainDiagnosis> {
                 'images/q' + type.toString() + '.png',
                 height: 500.0,
                 width: 500.0,
-
               ),
               new Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -146,57 +145,62 @@ class _MainDiagnosisState extends State<MainDiagnosis> {
     if (status > 0)
       switch (type) {
         case 1:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you have diarrhea?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("have diarrhea"));
           break;
         case 2:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from muscle or joint pain?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from muscle or joint pain"));
           break;
         case 3:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Have you mixed with foreigners in the past days?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("mixed with foreigners in the past days"));
           break;
         case 4:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from nasal congestion?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from nasal congestion"));
           break;
         case 5:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you have a dry cough?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("have a dry cough"));
           break;
         case 6:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from fatigue?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from fatigue"));
           break;
         case 7:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you have a fever?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("have a fever"));
           break;
         case 8:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from a sore throat?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from a sore throat"));
           break;
         case 9:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from sputum production?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from sputum production"));
           break;
         case 10:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from headache?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from headache"));
           break;
         case 11:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from shortness of breath?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from shortness of breath"));
           break;
         case 12:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from vomiting or nausea?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from vomiting or nausea"));
           break;
         case 13:
-          MainScreen.listAn.add(AppLocalizations.of(context).translate("Do you suffer from chills?"));
+          MainScreen.listAn.add(AppLocalizations.of(context).translate("suffer from chills"));
           break;
       }
 
     if (type >= 13)
   {
+    Navigator.pop(
+        context,
+        MaterialPageRoute(builder: (context) => MainDiagnosis(13)));
     Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => DailyReport()));
     return;
     }
+    Navigator.pop(
+        context,
+        MaterialPageRoute(builder: (context) => MainDiagnosis(type)));
     Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MainDiagnosis(type + 1)));
-
   }
 
 }
