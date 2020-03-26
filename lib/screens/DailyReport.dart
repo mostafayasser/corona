@@ -19,6 +19,9 @@ class _DailyReportState extends State<DailyReport> {
   final String diag = MainScreen.postive()
       ? "images/yallow.png"
       : "images/statusgreen.png";
+  final String diag2 = MainScreen.postive()
+      ? "Your health condition needs medical follow-up, contact us."
+      : "You are fine and need to stay home to avoid infection.";
 
   @override
   Widget build(BuildContext context) {
@@ -67,48 +70,76 @@ class _DailyReportState extends State<DailyReport> {
                         color: Colors.white,
                       ),
 
-                      onPressed: () =>
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Diagnosis())))),
+                      onPressed: () =>(sendData(context))
+                    )),
               new Image.asset(
-
                 '' + diag + '',
                 height: 100.0,
                 width: 100.0,
 
               ),
+              SizedBox(height: 10),
 
               Column(
                 children: <Widget>[
-                  new Image.asset(
-                    'images/Yes.png',
-                    height: 50.0,
-                    width: 50.0,
 
-                  ),
-                 Text (AppLocalizations.of(context).translate("Your answer on the questions."),
+                  SizedBox(height: 10),
+                  Text (AppLocalizations.of(context).translate("Daily report of your health conditions."),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 17.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black
+                      )),
+                 Text (AppLocalizations.of(context).translate(MainScreen.listAn.length < 1 ? "You have not been examined, please go to the quick medical examination page": diag2),
+                     textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueGrey
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w700,
+                      color: MainScreen.postive() ? Colors.red : Colors.blue,
                   )),
-                  for (int x = 0; x < MainScreen.listAn.length; x++)
 
-    Text("${MainScreen.listAn[x]}",
-        style: TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.w900,
-            color: Colors.white
-        ))
+                  SizedBox(height: 10),
+                  for (int x = 0; x < MainScreen.listAn.length; x++)
+                    RichText(
+                      text: TextSpan(
+                        children: [
+
+                          TextSpan(
+                            text: MainScreen.listAn[x].toString(),
+                          ),
+                          WidgetSpan(
+                            child:  new Image.asset(
+                              'images/Yes.png',
+                              height: 28.0,
+                              width: 28.0,
+
+                            ),
+
+                          ),
+                      WidgetSpan(
+                        child:   SizedBox(height: 20),
+                      )
+
+
+                        ],
+                      ),
+                    ),
                 ],
               )
 
             ]
 
         )
-
     );
   }
+  void sendData(BuildContext context){
+    Navigator.pop(
+        context,
+        MaterialPageRoute(builder: (context) => DailyReport()));
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Diagnosis()));
+  }
+//se
 }

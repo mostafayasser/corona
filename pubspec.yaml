@@ -70,13 +70,13 @@ flutter:
     - images/q11.png
     - images/q12.png
     - images/q13.png
-    - images/bg0.jpeg
-    - images/bg1.jpeg
-    - images/bg2.jpeg
-    - images/bg3.jpeg
-    - images/bg4.jpeg
-    - images/bg5.jpeg
-    - images/bg6.jpeg
+    - images/bg0.png
+    - images/bg1.png
+    - images/bg2.png
+    - images/bg3.png
+    - images/bg4.png
+    - images/bg5.png
+    - images/bg6.png
     - images/No.png
     - images/Yes.png
     - images/homebg.png
@@ -86,6 +86,7 @@ flutter:
     - images/fastdiagnosis.png
     - images/statusgreen.png
     - images/postive.png
+    - images/Contactus.png
     - images/nagtive.png
     - images/yallow.png
     - images/report.png

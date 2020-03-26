@@ -1,9 +1,10 @@
 import 'package:corona/screens/DailyReport.dart';
 import 'package:flutter/material.dart';
 import '../models/app_localizations.dart';
+import 'package:corona/screens/ContactUS.dart';
 import '../screens/main_screen.dart';
 import '../screens/MainDiagnosis.dart';
-
+import '../screens/Instructions.dart';
 class Diagnosis extends StatelessWidget {
 
   final String diag = MainScreen.postive() ? "images/postive.png" : "images/nagtive.png";
@@ -168,82 +169,116 @@ class Diagnosis extends StatelessWidget {
                       )
 
               ),
-              Center(
-                  child: new Container(
-                      child : Scaffold(
-                          body: new Stack(
-                              fit: StackFit.expand,
-                              children: <Widget>[
-                                new Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      new Image.asset(
-                                        'images/q1.png',
-                                        height: 300.0,
-                                        width: 300.0,
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
 
-                                      ),
-                                      new Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: <Widget>[
-                                          new Image.asset(
-                                            'images/Yes.png',
-                                            height: 80.0,
-                                            width: 80.0,
+                    Align(
+                        alignment: FractionalOffset.bottomLeft,
+                        child: IconButton(
+                            padding: EdgeInsets.only(
+                                top: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.06),
+                            icon: Icon(
+                              (AppLocalizations.of(context).translate('language') ==
+                                  "English")
+                                  ? Icons.arrow_forward
+                                  : Icons.arrow_back,
+                              color: Colors.white,
+                            ),
 
-                                          ),
+                            onPressed: () =>
+                                sendData(context))),
+                    Align(
+                        alignment: FractionalOffset.center,
+                        child: ButtonTheme(
+                            buttonColor: Colors.white70,
+                            minWidth: MediaQuery.of(context).size.width * 0.6,
+                            height: MediaQuery.of(context).size.height * 0.05,
+                            child: RaisedButton(
+                              textColor: Color(0xFF45746E),
+                              onPressed: () {
+                                Navigator.pop(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ContactUS()));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => Instructions()));
+                              },
+                              child: Text(AppLocalizations.of(context).translate('Instructions')),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(40.0),
+                                side: BorderSide(color: Color(0xFF45746E)),
+                              ),
+                            ))),
+                    SizedBox(height: 100),
+                    new Image.asset(
 
+                      'images/Contactus.png',
+                      height: 360.0,
+                      width: 260.0,
 
-                                        ],
-                                      ),
-                                    ]
-
-                                )
-                              ]
-                          )
-
-
-                      )
-                  )
+                    ),
+                  ]
 
               ),
-              Center(
-                  child: new Container(
-                      child : Scaffold(
-                          body: new Stack(
-                              fit: StackFit.expand,
-                              children: <Widget>[
-                                new Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      new Image.asset(
-                                        'images/q1.png',
-                                        height: 300.0,
-                                        width: 300.0,
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
 
-                                      ),
-                                      new Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: <Widget>[
-                                          new Image.asset(
-                                            'images/Yes.png',
-                                            height: 80.0,
-                                            width: 80.0,
+                    Align(
+                        alignment: FractionalOffset.bottomLeft,
+                        child: IconButton(
+                            padding: EdgeInsets.only(
+                                top: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.06),
+                            icon: Icon(
+                              (AppLocalizations.of(context).translate('language') ==
+                                  "English")
+                                  ? Icons.arrow_forward
+                                  : Icons.arrow_back,
+                              color: Colors.white,
+                            ),
 
-                                          ),
+                            onPressed: () =>
+                                sendData(context))),
+            Align(
+                alignment: FractionalOffset.center,
+            child: ButtonTheme(
+            buttonColor: Colors.white70,
+            minWidth: MediaQuery.of(context).size.width * 0.6,
+            height: MediaQuery.of(context).size.height * 0.05,
+            child: RaisedButton(
+              textColor: Color(0xFF45746E),
+              onPressed: () {
+                Navigator.pop(
+                    context,
+                    MaterialPageRoute(builder: (context) => ContactUS()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Instructions()));
+              },
+              child: Text(AppLocalizations.of(context).translate('Instructions')),
+              shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(40.0),
+                side: BorderSide(color: Color(0xFF45746E)),
+              ),
+            ))),
+                    SizedBox(height: 100),
+                    new Image.asset(
 
+                      'images/Contactus.png',
+                      height: 360.0,
+                      width: 260.0,
 
-                                        ],
-                                      ),
-                                    ]
-
-                                )
-                              ]
-                          )
-
-
-                      )
-                  )
+                    ),
+                  ]
 
               ),
             ],
@@ -255,6 +290,13 @@ class Diagnosis extends StatelessWidget {
         ),
     );
   }
-
+  void sendData(BuildContext context){
+    Navigator.pop(
+        context,
+        MaterialPageRoute(builder: (context) => ContactUS()));
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Diagnosis()));
+  }
 
 }
