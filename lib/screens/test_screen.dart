@@ -38,13 +38,13 @@ class _TestScreenState extends State<TestScreen> {
                         children: <Widget>[
                           RaisedButton(
                             onPressed: () {
-                              updateUserStatus(5, "0xFF0000FF");
+                              updateUserStatus( "0xFF0000FF");
                             },
                             child: Text('set'),
                           ),
                           RaisedButton(
                             onPressed: () {
-                              updateUserStatus(0, "0xFF00FF00");
+                              updateUserStatus( "0xFF00FF00");
                             },
                             child: Text('reset'),
                           )

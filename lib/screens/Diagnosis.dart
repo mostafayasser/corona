@@ -1,6 +1,6 @@
 import 'package:corona/screens/DailyReport.dart';
 import 'package:flutter/material.dart';
-import '../models/app_localizations.dart';
+
 import '../screens/main_screen.dart';
 import '../screens/MainDiagnosis.dart';
 

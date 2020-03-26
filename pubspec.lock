@@ -179,7 +179,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-
   flutter_page_indicator:
     dependency: "direct main"
     description:
@@ -187,14 +186,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.3"
-  flutter_swiper:
-    dependency: "direct main"
-    description:
-      name: flutter_swiper
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.6"
-
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -202,7 +193,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.6"
-
+  flutter_swiper:
+    dependency: "direct main"
+    description:
+      name: flutter_swiper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.6"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -213,7 +210,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-
   glob:
     dependency: transitive
     description:
@@ -221,14 +217,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  html:
-    dependency: transitive
-    description:
-      name: html
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.14.0+3"
-
   google_maps_flutter:
     dependency: "direct main"
     description:
@@ -236,7 +224,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.25"
-
+  html:
+    dependency: transitive
+    description:
+      name: html
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.14.0+3"
   http:
     dependency: transitive
     description:
@@ -264,8 +258,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-
-    version: "0.16.0"
+    version: "0.16.1"
   intl_translation:
     dependency: "direct main"
     description:
@@ -273,7 +266,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.9"
-
   js:
     dependency: transitive
     description:
@@ -446,17 +438,14 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-
-    version: "0.2.11"
+    version: "0.2.15"
   transformer_page_view:
     dependency: transitive
     description:
       name: transformer_page_view
       url: "https://pub.dartlang.org"
     source: hosted
-   
-    version: "0.2.15"
-
+    version: "0.1.6"
   typed_data:
     dependency: transitive
     description:
@@ -493,7 +482,5 @@ packages:
     source: hosted
     version: "2.2.0"
 sdks:
-
-  dart: ">=2.7.0-dev <3.0.0"
+  dart: ">=2.7.0 <3.0.0"
   flutter: ">=1.12.13+hotfix.5 <2.0.0"
-

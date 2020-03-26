@@ -73,14 +73,6 @@ Future<String> sendPasswordResetEmail(String email) async {
   }
   return errorMessage;
 }
-Future getUser(String uid) async {
-  try {
-    var userData = await _firestore.document(uid).get();
-    return User.fromData(userData.data);
-  } catch (e) {
-    return e.message;
-  }
-}
 
 
 Future<User> getCurrentUser() async {
@@ -102,13 +94,13 @@ Future<User> getCurrentUser() async {
       return user;
 }
 
-void updateUserStatus( score, status) async {
+void updateUserStatus(  status) async {
   currentUser = await _auth.currentUser();
   String email = currentUser.email;
   await _firestore
       .collection('users')
       .document('$email')
-      .updateData({'status': status, 'score': score});
+      .updateData({'status': status});
 }
 /*
 

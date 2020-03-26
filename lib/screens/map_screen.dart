@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -32,33 +30,32 @@ class MapScreenState extends State<MapScreen> {
     List<Marker> allMarkers = [
       Marker(
           markerId: MarkerId('1'),
-          icon:
-             infict? yellow : green,
+          icon: infict ? yellow : green,
           draggable: true,
           onTap: () {
             print('Marker Tapped');
           },
-          position:  mark_1),
+          position: mark_1),
       Marker(
           markerId: MarkerId('2'),
-          icon:
-             infict? yellow : green,
+          icon: infict ? yellow : green,
           draggable: true,
           onTap: () {
             print('Marker Tapped');
           },
           position: mark_2),
       Marker(
+        //infoWindow: InfoWindow(),
           markerId: MarkerId('3'),
-          icon:
-             infict? red : green,
+          icon: infict ? red : green,
           draggable: true,
           onTap: () {
             print('Marker Tapped');
           },
           position: mark_3)
     ];
-    return new Scaffold(
+    return SafeArea(
+        child: Scaffold(
       body: GoogleMap(
         initialCameraPosition:
             CameraPosition(target: LatLng(40.744435, -74.190299), zoom: 12.0),
@@ -69,54 +66,57 @@ class MapScreenState extends State<MapScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           FloatingActionButton(
+            heroTag: null,
             onPressed: _reset,
             child: Text('Reset'),
           ),
           FloatingActionButton(
+            heroTag: null,
             onPressed: _infect,
             child: Text('Infect'),
           ),
           FloatingActionButton(
+            heroTag: null,
             onPressed: _move,
             child: Text('Move'),
           ),
-          
         ],
       ),
-    );
+    ));
   }
 
   void _move() async {
     print(counter);
     counter++;
-    if(counter == 1){
+    if (counter == 1) {
       setState(() {
-      mark_3 = mark_4;
-    });
-    }
-    else if(counter == 2){
+        mark_3 = mark_4;
+      });
+    } else if (counter == 2) {
       setState(() {
-      mark_3 = mark_5;
-    });
-    }
-    else if(counter == 3){
+        mark_3 = mark_5;
+      });
+    } else if (counter == 3) {
       setState(() {
-      mark_3 = mark_6;
-    });
+        mark_3 = mark_6;
+      });
     }
   }
-void _reset() async {
+
+  void _reset() async {
     setState(() {
       infict = false;
       counter = 0;
       mark_3 = LatLng(40.741590, -74.191823);
     });
   }
+
   void _infect() async {
     setState(() {
       infict = true;
     });
   }
+
   void mapCreated(controller) {
     setState(() {
       _controller = controller;

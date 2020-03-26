@@ -5,7 +5,6 @@ import '../models/user.dart';
 import './Instructions.dart';
 import '../models/app_localizations.dart';
 import '../models/dialog.dart';
-import './login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   static const route = "/signupScreen";

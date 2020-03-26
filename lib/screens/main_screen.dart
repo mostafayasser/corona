@@ -1,4 +1,4 @@
-import 'package:corona/screens/HomePage.dart';
+
 import 'package:flutter/material.dart';
 import '../models/app_localizations.dart';
 import 'login_screen.dart';

@@ -2,8 +2,6 @@ import 'package:corona/screens/HomePage.dart';
 import 'package:flutter/material.dart';
 import './signup_screen.dart';
 import './main_screen.dart';
-import './Instructions.dart';
-import './test_screen.dart';
 import './forget_password.dart';
 import '../widgets/text_field.dart';
 import '../models/auth.dart';

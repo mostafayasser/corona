@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/app_localizations.dart';
 import '../screens/Diagnosis.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/user.dart';
 
 class CurrentReport extends StatefulWidget {
 
