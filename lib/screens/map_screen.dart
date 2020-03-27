@@ -45,13 +45,14 @@ class MapScreenState extends State<MapScreen> {
           },
           position: mark_2),
       Marker(
-        //infoWindow: InfoWindow(),
+        infoWindow: InfoWindow(
+          title: "Mohamad Ahmed",
+          snippet: "Places: Nasr city , suez road and Masr elgdida ",
+        ),
           markerId: MarkerId('3'),
           icon: infict ? red : green,
           draggable: true,
-          onTap: () {
-            print('Marker Tapped');
-          },
+          
           position: mark_3)
     ];
     return SafeArea(
@@ -61,6 +62,7 @@ class MapScreenState extends State<MapScreen> {
             CameraPosition(target: LatLng(40.744435, -74.190299), zoom: 12.0),
         markers: Set.from(allMarkers),
         onMapCreated: mapCreated,
+        
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

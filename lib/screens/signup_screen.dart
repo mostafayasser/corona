@@ -5,6 +5,7 @@ import '../models/user.dart';
 import './Instructions.dart';
 import '../models/app_localizations.dart';
 import '../models/dialog.dart';
+import 'package:grouped_buttons/grouped_buttons.dart';
 
 class SignupScreen extends StatefulWidget {
   static const route = "/signupScreen";
@@ -20,6 +21,8 @@ final _middleNameController = TextEditingController();
 final _lastNameController = TextEditingController();
 final _nationalIDController = TextEditingController();
 final _phoneNumberController = TextEditingController();
+final _ageController = TextEditingController();
+String _genderController;
 
 class _SignupScreenState extends State<SignupScreen> {
   @override
@@ -84,6 +87,9 @@ class _SignupScreenState extends State<SignupScreen> {
               TextInputType.text, _middleNameController),
           BuildTextField(AppLocalizations.of(context).translate('last_name'),
               TextInputType.text, _lastNameController),
+          BuildTextField(AppLocalizations.of(context).translate('age'),
+              TextInputType.phone, _ageController),
+          _buildGenderSelector(),
           BuildTextField(AppLocalizations.of(context).translate('phone'),
               TextInputType.phone, _phoneNumberController),
           BuildTextField(AppLocalizations.of(context).translate('email'),
@@ -93,6 +99,32 @@ class _SignupScreenState extends State<SignupScreen> {
           BuildTextField(AppLocalizations.of(context).translate('id'),
               TextInputType.text, _nationalIDController),
           isLoading ? CircularProgressIndicator() : _buildSubmitButton(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildGenderSelector() {
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        children: <Widget>[
+          Align(
+              alignment: FractionalOffset.bottomLeft,
+              child: Text(AppLocalizations.of(context).translate('gender'))),
+          Row(
+            children: <Widget>[
+              RadioButtonGroup(
+                orientation: GroupedButtonsOrientation.HORIZONTAL,
+                labels: <String>[
+                  AppLocalizations.of(context).translate('male'),
+                  AppLocalizations.of(context).translate('female')
+                ],
+                onSelected: (selected) => _genderController = selected,
+              ),
+              
+            ],
+          ),
         ],
       ),
     );
@@ -120,19 +152,20 @@ class _SignupScreenState extends State<SignupScreen> {
                     lastName: _lastNameController.text,
                     nationalID: _nationalIDController.text,
                     status: "0xFF00FF00",
-                    score: 0
-                    ))
+                    score: 0,
+                    age: int.parse(_ageController.text),
+                    gender: _genderController))
                 .then((value) {
               setState(() {
                 isLoading = false;
                 errorMessage = value;
               });
               if (errorMessage != null)
-                return showAlertDialog(context, errorMessage , AppLocalizations.of(context).translate('error'));
+                return showAlertDialog(context, errorMessage,
+                    AppLocalizations.of(context).translate('error'));
               else {
-
-                
-
+                _genderController = "";
+                _ageController.text = "";
                 _emailController.text = "";
                 _passwordController.text = "";
                 _phoneNumberController.text = "";
@@ -144,7 +177,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => Instructions()),
                 );
-
               }
             });
           },
@@ -157,6 +189,4 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
     );
   }
-
-  
 }

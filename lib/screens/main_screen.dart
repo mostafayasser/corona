@@ -1,31 +1,30 @@
-
 import 'package:flutter/material.dart';
 import '../models/app_localizations.dart';
 import 'login_screen.dart';
 import 'signup_screen.dart';
+import './dashboard_screen.dart';
 
 class MainScreen extends StatefulWidget {
   static const route = "/mainScreen";
   final Function changeLocale;
   static int status = 1;
   static List<String> listAn = <String>[];
-  static bool postive()
-  {
+  static bool postive() {
     return MainScreen.status >= 7 ? true : false;
   }
+
   MainScreen({this.changeLocale});
 
   @override
   _MainScreenState createState() => _MainScreenState();
 }
+
 bool selected = false;
+
 class _MainScreenState extends State<MainScreen> {
   @override
-
   Widget build(BuildContext context) {
-
     return SafeArea(
-
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -36,22 +35,16 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         child: Scaffold(
-
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Center(
-
               child: Column(
-
-
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.2,
                   ),
-
-
                   Image.asset(
                     "assets/images/electropi1++.png",
                     fit: BoxFit.cover,
@@ -74,11 +67,13 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
           ),
+          floatingActionButton: FloatingActionButton.extended(
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(DashboardScreen.route),
+              label: Text("Go to dashboard")),
         ),
       ),
-
     );
-
   }
 
   Widget buildSubmitButton(context, title, route) {

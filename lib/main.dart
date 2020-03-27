@@ -8,6 +8,7 @@ import './screens/HomePage.dart';
 import './screens/forget_password.dart';
 import './screens/map_screen.dart';
 import './screens/test_screen.dart';
+import './screens/dashboard_screen.dart';
 import 'models/app_localizations.dart';
 
 void main() => runApp(EasyLocalization(
@@ -87,7 +88,7 @@ class _MyAppState extends State<MyApp> {
       },
       supportedLocales: EasyLocalization.of(context).supportedLocales,
       locale: EasyLocalization.of(context).locale,
-      home: MainScreen(changeLocale: changeLocale),
+      home:  MainScreen(changeLocale: changeLocale), //DashboardScreen(),
       routes: {
         LoginScreen.route: (ctx) => LoginScreen(),
         SignupScreen.route: (ctx) => SignupScreen(),
@@ -96,6 +97,7 @@ class _MyAppState extends State<MyApp> {
         ForgetPasswordScreen.route : (ctx) => ForgetPasswordScreen(),
         MapScreen.route : (ctx) => MapScreen(),
         TestScreen.route : (ctx) => TestScreen(),
+        DashboardScreen.route : (ctx) => DashboardScreen(),
       },
     );
   }

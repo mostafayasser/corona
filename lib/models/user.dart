@@ -11,8 +11,9 @@ class User {
       email,
       password,
      nationalID,
-      status;
-      int score;
+      status,
+      gender;
+      int score , age;
   User(
       {@required this.firstName,
       @required this.email,
@@ -23,6 +24,8 @@ class User {
       @required this.phone,
       @required this.status,
       @required this.score,
+      @required this.age,
+      @required this.gender,
       });
 
 }

@@ -20,11 +20,11 @@ Future<String> registerUser(User user) async {
       'middle_name': user.middleName,
       'last_name': user.lastName,
       'national_id': user.nationalID,
-
       'phone': user.phone,
       'status': user.status,
-      'score': user.score
-
+      'score': user.score,
+      'age': user.age,
+      'gender': user.gender
     });
     errorMessage = null;
   } catch (error) {
@@ -90,6 +90,8 @@ Future<User> getCurrentUser() async {
       score: doc.data['score'],
       status: doc.data['status'],
       nationalID: doc.data['national_id'],
+      age: doc.data['age'],
+      gender: doc.data['gender'],
       );
       return user;
 }

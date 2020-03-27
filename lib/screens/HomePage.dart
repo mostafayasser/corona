@@ -3,7 +3,6 @@ import 'package:corona/screens/CurrentReport.dart';
 import 'package:corona/screens/ContactUS.dart';
 
 import 'package:flutter/material.dart';
-import './Instructions.dart';
 import '../models/app_localizations.dart';
 import '../screens/Diagnosis.dart';
 import '../screens/map_screen.dart';
@@ -144,7 +143,7 @@ class HomePageState extends State<HomePage> {
 
                       onPressed: () =>  (Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => ContactUS()))),
+                          MaterialPageRoute(builder: (context) => MapScreen()))),
 
                       child: new Row(
 
@@ -175,7 +174,7 @@ class HomePageState extends State<HomePage> {
                             top: 0, bottom: 0, right: 0.0, left: 0.0),
                         onPressed: () =>  (Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Instructions()))),
+                            MaterialPageRoute(builder: (context) => ContactUS()))),
                         child: new Row(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
