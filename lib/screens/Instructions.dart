@@ -6,44 +6,47 @@ import 'package:flutter/cupertino.dart';
 import '../models/app_localizations.dart';
 import './HomePage.dart';
 
-
 class Instructions extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     return new Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context).translate('Instructions'), style: TextStyle(
-              color: Color(0xFF51b5D8))),
+          title: Text(AppLocalizations.of(context).translate('Instructions'),
+              style: TextStyle(color: Color(0xFF51b5D8))),
           centerTitle: true,
           backgroundColor: Colors.white,
         ),
-
-        body: new Swiper (
+        body: new Swiper(
           itemBuilder: (BuildContext context, int index) {
             return new Image.asset(
               images[index],
               fit: BoxFit.fill,
             );
           },
-
-          indicatorLayout: PageIndicatorLayout.COLOR,
-          autoplay: true,
+          indicatorLayout: PageIndicatorLayout.NONE,
+          autoplay: false,
           itemCount: images.length,
-          pagination: new SwiperPagination(),
-          control: new SwiperControl(),
-
-
+          pagination: new SwiperPagination(margin: EdgeInsets.only(bottom: 100),
+          builder: new DotSwiperPaginationBuilder(
+            color: Color(0xFF9FDDEF),
+            activeColor: Color(0xFF51b5D8),
+            space: 10.0,
+          )
+          ),
+          control: new SwiperControl(color: Color(0xFF51b5D8)),
         ),
-
-    backgroundColor: Colors.blueGrey.shade200,
-    floatingActionButton: FloatingActionButton(
-      onPressed: () => Navigator.of(context)
-          .pushReplacementNamed(HomePage.route),
-    tooltip: 'Skip',
-    child: const Icon(Icons.close),
-    ),
-    );
+        backgroundColor: Colors.blueGrey.shade200,
+        floatingActionButton: 
+           FloatingActionButton.extended(
+            onPressed: () =>
+                Navigator.of(context).pushReplacementNamed(HomePage.route),
+            tooltip: 'Skip',
+            backgroundColor: Colors.white,
+            label: Text(
+              'Skipتخطي>>',
+              style: TextStyle(color: Color(0xFF51b5D8)),
+            ),
+          ),
+        );
   }
 }

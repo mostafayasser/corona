@@ -1,9 +1,10 @@
 const List<String> images = [
-  "images/bg0.png",
-  "images/bg1.png",
-  "images/bg2.png",
-  "images/bg3.png",
-  "images/bg4.png",
-  "images/bg5.png",
-  "images/bg6.png",
+  "images/inst1.png",
+  "images/inst2.png",
+  "images/inst3.png",
+  "images/inst4.png",
+  "images/inst5.png",
+  "images/inst6.png",
+  "images/inst7.png",
+  
 ];

@@ -74,9 +74,7 @@ class _SignupScreenState extends State<SignupScreen> {
           Text(
             AppLocalizations.of(context).translate('signup'),
             style: TextStyle(
-                fontSize: 40,
-                color: Colors.white70,
-                fontWeight: FontWeight.bold),
+                fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
@@ -111,18 +109,19 @@ class _SignupScreenState extends State<SignupScreen> {
         children: <Widget>[
           Align(
               alignment: FractionalOffset.bottomLeft,
-              child: Text(AppLocalizations.of(context).translate('gender'))),
+              child: Text(AppLocalizations.of(context).translate('gender'),style: TextStyle(color: Colors.white70),)),
           Row(
             children: <Widget>[
               RadioButtonGroup(
                 orientation: GroupedButtonsOrientation.HORIZONTAL,
+                labelStyle: TextStyle(color: Colors.white70),
+                activeColor: Colors.teal,
                 labels: <String>[
                   AppLocalizations.of(context).translate('male'),
                   AppLocalizations.of(context).translate('female')
                 ],
                 onSelected: (selected) => _genderController = selected,
               ),
-              
             ],
           ),
         ],
@@ -138,27 +137,29 @@ class _SignupScreenState extends State<SignupScreen> {
         minWidth: MediaQuery.of(context).size.width * 0.6,
         height: MediaQuery.of(context).size.height * 0.08,
         child: RaisedButton(
+          color: Colors.white,
           textColor: Color(0xFF45746E),
           onPressed: () {
             setState(() {
               isLoading = true;
             });
             registerUser(User(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                    phone: _phoneNumberController.text,
-                    firstName: _firstNameController.text,
-                    middleName: _middleNameController.text,
-                    lastName: _lastNameController.text,
-                    nationalID: _nationalIDController.text,
+                    email:"",// _emailController.text,
+                    password:"",// _passwordController.text,
+                    phone:"",// _phoneNumberController.text,
+                    firstName:"",// _firstNameController.text,
+                    middleName: "",//_middleNameController.text,
+                    lastName: "",//_lastNameController.text,
+                    nationalID: "",//_nationalIDController.text,
                     status: "0xFF00FF00",
                     score: 0,
-                    age: int.parse(_ageController.text),
-                    gender: _genderController))
+                    age: 10,//int.parse(_ageController.text),
+                    gender: ""//_genderController
+                    ))
                 .then((value) {
               setState(() {
                 isLoading = false;
-                errorMessage = value;
+                errorMessage = null;//value;
               });
               if (errorMessage != null)
                 return showAlertDialog(context, errorMessage,

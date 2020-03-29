@@ -8,7 +8,6 @@ import '../models/auth.dart';
 import '../models/app_localizations.dart';
 import '../models/dialog.dart';
 
-
 class LoginScreen extends StatefulWidget {
   static const route = "/loginScreen";
 
@@ -59,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       top: MediaQuery.of(context).size.height * 0.06),
                   icon: Icon(
                     (AppLocalizations.of(context).translate('language') ==
-                        "English")
+                            "English")
                         ? Icons.arrow_forward
                         : Icons.arrow_back,
                     color: Colors.white,
@@ -72,9 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Text(
             AppLocalizations.of(context).translate('login'),
             style: TextStyle(
-                fontSize: 40,
-                color: Colors.white70,
-                fontWeight: FontWeight.bold),
+                fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.07,
@@ -99,6 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
         minWidth: MediaQuery.of(context).size.width * 0.6,
         height: MediaQuery.of(context).size.height * 0.08,
         child: RaisedButton(
+          color: Colors.white,
           textColor: Color(0xFF45746E),
           onPressed: () {
             setState(() {
@@ -114,14 +112,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 return showAlertDialog(context, errorMess,
                     AppLocalizations.of(context).translate('error'));
               else {
-
-                Navigator.of(context)
-                    .pushReplacementNamed(HomePage.route);
+                Navigator.of(context).pushReplacementNamed(HomePage.route);
 
                 _emailController.text = "";
                 _passwordController.text = "";
-                
-
               }
             });
           },
@@ -144,7 +138,11 @@ class _LoginScreenState extends State<LoginScreen> {
           onPressed: () => Navigator.of(context)
               .pushReplacementNamed(ForgetPasswordScreen.route),
           child: Text(AppLocalizations.of(context).translate('forgot_password'),
-              style: TextStyle(decoration: TextDecoration.underline)),
+              style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: Colors.white,
+                  fontSize: 13,
+                  fontWeight: FontWeight.normal)),
         ),
       ),
     );
@@ -156,7 +154,8 @@ class _LoginScreenState extends State<LoginScreen> {
       child: FlatButton(
         onPressed: () => Navigator.of(context).pushNamed(SignupScreen.route),
         child: Text(AppLocalizations.of(context).translate('dont_have_account'),
-            style: TextStyle(decoration: TextDecoration.underline)),
+            style: TextStyle(
+                decoration: TextDecoration.underline, color: Colors.white)),
       ),
     );
   }

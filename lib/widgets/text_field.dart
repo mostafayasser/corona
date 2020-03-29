@@ -12,9 +12,11 @@ class BuildTextField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         keyboardType: type,
+        style: new TextStyle(color: Colors.white),
+        cursorColor: Colors.teal,
         decoration: InputDecoration(
           labelText: text,
-          labelStyle: TextStyle(color : Colors.grey),
+          labelStyle: TextStyle(color : Colors.white70),
           enabledBorder: UnderlineInputBorder(
             borderSide: const BorderSide(color: Colors.white, width: 2.0),
           ),
