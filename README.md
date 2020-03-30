@@ -2,8 +2,8 @@ This project is a healthcare application for examining infected people with COVI
 
 The application consists of 9 screens: 
 * Main screen.
-Arabic English
-<img src="assets/images/corona5.jpeg" width=300 height=500>   <img src="assets/images/corona9.jpeg" width=300 height=500>
+  Arabic                                                     |               English
+<img src="assets/images/corona5.jpeg" width=300 height=500>  | <img src="assets/images/corona9.jpeg" width=300 height=500>
 
 
 
