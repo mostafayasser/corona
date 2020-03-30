@@ -2,8 +2,10 @@ This project is a healthcare application for examining infected people with COVI
 
 The application consists of 9 screens: 
 * Main screen.
-<img src="assets/images/corona5.jpeg" width=300 height=500>
-<img src="assets/images/corona9.jpeg" width=300 height=500>
+Solarized dark             |  Solarized Ocean
+<img src="assets/images/corona5.jpeg" width=300 height=500>  |  <img src="assets/images/corona9.jpeg" width=300 height=500>
+
+
 
 * Sign up screen.
 <img src="assets/images/corona12.jpeg" width=300 height=500>
@@ -14,6 +16,8 @@ The application consists of 9 screens:
 <img src="assets/images/corona15.jpeg" width=300 height=500>
 
 * Forgot password screen.
+<img src="assets/images/corona18.jpeg" width=300 height=500> 
+<img src="assets/images/corona19.jpeg" width=300 height=500>
 
 * Dashboard screen.
 <img src="assets/images/corona3.jpeg" width=300 height=500>
@@ -29,6 +33,7 @@ The application consists of 9 screens:
 
 * Medical report screen
 <img src="assets/images/corona11.jpeg" width=300 height=500>
+<img src="assets/images/corona16.jpeg" width=300 height=500>
 
 * Contact us screen
 <img src="assets/images/corona7.jpeg" width=300 height=500>
