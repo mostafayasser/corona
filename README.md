@@ -8,8 +8,8 @@ The application consists of 9 screens:
 
 
 * Sign up screen.
-<img src="assets/images/corona12.jpeg" width=300 height=500>
-<img src="assets/images/corona13.jpeg" width=300 height=500>
+<br/><br/>
+<img src="assets/images/corona12.jpeg" width=300 height=500> <img src="assets/images/corona13.jpeg" width=300 height=500>
 
 * Sign in screen.
 <br/><br/>
