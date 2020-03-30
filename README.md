@@ -1,16 +1,37 @@
-# corona
+This project is a healthcare application for examining infected people with COVID-19 developed using Flutter + Firebase for the backend. The application is available in both languages Arabic and English.
 
-A new Flutter project.
+The application consists of 9 screens: 
+* Main screen.
+<img src="assets/images/corona5.jpeg" width=300 height=500>
+<img src="assets/images/corona9.jpeg" width=300 height=500>
 
-## Getting Started
+* Sign up screen.
+<img src="assets/images/corona12.jpeg" width=300 height=500>
+<img src="assets/images/corona13.jpeg" width=300 height=500>
 
-This project is a starting point for a Flutter application.
+* Sign in screen.
+<img src="assets/images/corona5.jpeg" width=300 height=500>
+<img src="assets/images/corona15.jpeg" width=300 height=500>
 
-A few resources to get you started if this is your first Flutter project:
+* Forgot password screen.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* Dashboard screen.
+<img src="assets/images/corona3.jpeg" width=300 height=500>
+<img src="assets/images/corona1.jpeg" width=300 height=500>
+<img src="assets/images/corona2.jpeg" width=300 height=500>
+<img src="assets/images/heat.jpeg" width=300 height=500>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Home page screen
+<img src="assets/images/corona14.jpeg" width=300 height=500>
+
+* Examination screen
+<img src="assets/images/corona6.jpeg" width=300 height=500>
+
+* Medical report screen
+<img src="assets/images/corona11.jpeg" width=300 height=500>
+
+* Contact us screen
+<img src="assets/images/corona7.jpeg" width=300 height=500>
+
+* Instructions screen
+<img src="assets/images/corona4.jpeg" width=300 height=500>
