@@ -1,8 +1,7 @@
 This project is a healthcare application for examining infected people with COVID-19 developed using Flutter + Firebase for the backend. The application is available in both languages Arabic and English.
 
 The application consists of 9 screens: 
-* Main screen.<br/>
- English                                        Arabic <br/>
+* Main screen.
 <br/><br/>
 <img src="assets/images/corona5.jpeg" width=300 height=500>        <img src="assets/images/corona9.jpeg" width=300 height=500>
 
