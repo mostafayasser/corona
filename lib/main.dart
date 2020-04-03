@@ -10,6 +10,9 @@ import './screens/map_screen.dart';
 import './screens/test_screen.dart';
 import './screens/dashboard_screen.dart';
 import 'models/app_localizations.dart';
+import 'package:device_simulator/device_simulator.dart';
+
+const bool debugEnableDeviceSimulator = true;
 
 void main() => runApp(EasyLocalization(
       child: MyApp(),
@@ -28,22 +31,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  bool selected()
-  {
+  bool selected() {
     GestureDetector(
-        onTap: () {
-      setState(() {
-        return true;
-      });
-    },
+      onTap: () {
+        setState(() {
+          return true;
+        });
+      },
     );
     return false;
   }
 
   @override
   Widget build(BuildContext context) {
-
     void changeLocale(locale) {
       setState(() {
         print(locale);
@@ -52,6 +52,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -88,16 +89,23 @@ class _MyAppState extends State<MyApp> {
       },
       supportedLocales: EasyLocalization.of(context).supportedLocales,
       locale: EasyLocalization.of(context).locale,
-      home:  MainScreen(changeLocale: changeLocale), //DashboardScreen(),
+      home: DeviceSimulator(
+          brightness: Brightness.dark,
+          enable: debugEnableDeviceSimulator,
+          child: MainScreen(changeLocale: changeLocale)),
       routes: {
         LoginScreen.route: (ctx) => LoginScreen(),
         SignupScreen.route: (ctx) => SignupScreen(),
-        MainScreen.route: (ctx) => MainScreen(changeLocale: changeLocale,),
-        HomePage.route: (ctx) => HomePage(changeLocale: changeLocale,),
-        ForgetPasswordScreen.route : (ctx) => ForgetPasswordScreen(),
-        MapScreen.route : (ctx) => MapScreen(),
-        TestScreen.route : (ctx) => TestScreen(),
-        DashboardScreen.route : (ctx) => DashboardScreen(),
+        MainScreen.route: (ctx) => MainScreen(
+              changeLocale: changeLocale,
+            ),
+        HomePage.route: (ctx) => HomePage(
+              changeLocale: changeLocale,
+            ),
+        ForgetPasswordScreen.route: (ctx) => ForgetPasswordScreen(),
+        MapScreen.route: (ctx) => MapScreen(),
+        TestScreen.route: (ctx) => TestScreen(),
+        DashboardScreen.route: (ctx) => DashboardScreen(),
       },
     );
   }

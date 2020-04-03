@@ -110,7 +110,8 @@ class _SignupScreenState extends State<SignupScreen> {
       child: Column(
         children: <Widget>[
           Align(
-              alignment: FractionalOffset.bottomLeft,
+              alignment: (AppLocalizations.of(context).translate('language') == "English")
+                        ? FractionalOffset.bottomRight : FractionalOffset.bottomLeft,
               child: Text(AppLocalizations.of(context).translate('gender'))),
           Row(
             children: <Widget>[

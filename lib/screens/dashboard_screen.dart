@@ -192,7 +192,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.of(context).pop()),
@@ -205,6 +205,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 Tab(icon: Icon(FontAwesomeIcons.chartPie)),
                 Tab(icon: Icon(FontAwesomeIcons.chartLine)),
+                Tab(icon: Icon(FontAwesomeIcons.map)),
               ],
             ),
             title: Text('Admin dashboard'),
@@ -316,6 +317,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         .OutsideJustification.middleDrawArea),
                                 
                               ]),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+               Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Container(
+                  child: Center(
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          'Heat map for Egypt',
+                          style: TextStyle(
+                              fontSize: 24.0, fontWeight: FontWeight.bold),
+                        ),
+                        Expanded(
+                          child: Image.asset("assets/images/HeatMap.png" , fit: BoxFit.contain,)
                         ),
                       ],
                     ),

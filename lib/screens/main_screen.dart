@@ -70,7 +70,7 @@ class _MainScreenState extends State<MainScreen> {
           floatingActionButton: FloatingActionButton.extended(
               onPressed: () =>
                   Navigator.of(context).pushNamed(DashboardScreen.route),
-              label: Text("Go to dashboard")),
+              label:  Text((AppLocalizations.of(context).translate('dashboard'))) ),
         ),
       ),
     );
