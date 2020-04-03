@@ -80,7 +80,7 @@ class _MainScreenState extends State<MainScreen> {
     return Padding(
       padding: EdgeInsets.all(10.0),
       child: ButtonTheme(
-        buttonColor: Colors.white70,
+        buttonColor: Colors.white,
         minWidth: MediaQuery.of(context).size.width * 0.6,
         height: MediaQuery.of(context).size.height * 0.08,
         child: RaisedButton(

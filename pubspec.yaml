@@ -75,26 +75,31 @@ flutter:
     - images/q11.png
     - images/q12.png
     - images/q13.png
-    - images/bg0.png
-    - images/bg1.png
-    - images/bg2.png
-    - images/bg3.png
-    - images/bg4.png
-    - images/bg5.png
-    - images/bg6.png
+    - images/inst1.png
+    - images/inst2.png
+    - images/inst3.png
+    - images/inst4.png
+    - images/inst5.png
+    - images/inst6.png
+    - images/inst7.png
     - images/No.png
     - images/Yes.png
-    - images/homebg.png
-    - images/homebg1.png
-    - images/homebg2.png
-    - images/homebg3.png
-    - images/fastdiagnosis.png
+    - images/BG.png
+    - images/diagnosis.png
+    - images/reports.png
+    - images/map.png
+    - images/contact.png
+    - images/diagnosis1.png
+    - images/reports1.png
+    - images/map1.png
+    - images/contact1.png
+    - images/quick.png
     - images/statusgreen.png
     - images/postive.png
     - images/Contactus.png
     - images/nagtive.png
     - images/yallow.png
-    - images/report.png
+    - images/daily.png
     - lang/en-US.json
     - lang/ar-EG.json
   #   - images/a_dot_ham.jpeg
