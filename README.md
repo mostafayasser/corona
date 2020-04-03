@@ -1,16 +1,42 @@
-# corona
+This project is a healthcare application for examining infected people with COVID-19 developed using Flutter + Firebase for the backend. The application is available in both languages Arabic and English.
 
-A new Flutter project.
+The application consists of 9 screens: 
+* Main screen.
+<br/><br/>
+<img src="assets/images/corona5.jpeg" width=300 height=500>        <img src="assets/images/corona9.jpeg" width=300 height=500>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+* Sign up screen.
+<br/><br/>
+<img src="assets/images/corona12.jpeg" width=300 height=500> <img src="assets/images/corona13.jpeg" width=300 height=500>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* Sign in screen.
+<br/><br/>
+<img src="assets/images/corona5.jpeg" width=300 height=500>  <img src="assets/images/corona15.jpeg" width=300 height=500>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Forgot password screen.
+<br/><br/>
+<img src="assets/images/corona18.jpeg" width=300 height=500>  <img src="assets/images/corona19.jpeg" width=300 height=500>
+
+* Dashboard screen.
+<br/><br/>
+<img src="assets/images/corona3.jpeg" width=300 height=500> <img src="assets/images/corona1.jpeg" width=300 height=500> <img src="assets/images/corona2.jpeg" width=300 height=500> <img src="assets/images/heat.jpeg" width=300 height=500>
+
+* Home page screen
+<img src="assets/images/corona14.jpeg" width=300 height=500>
+
+* Examination screen
+<img src="assets/images/corona6.jpeg" width=300 height=500>
+
+* Medical report screen
+<br/><br/>
+<img src="assets/images/corona11.jpeg" width=300 height=500> <img src="assets/images/corona16.jpeg" width=300 height=500>
+
+* Contact us screen
+<br/><br/>
+<img src="assets/images/corona7.jpeg" width=300 height=500> <img src="assets/images/corona21.jpeg" width=300 height=500>
+
+* Instructions screen
+<br/><br/>
+<img src="assets/images/corona4.jpeg" width=300 height=500> <img src="assets/images/corona20.jpeg" width=300 height=500>
