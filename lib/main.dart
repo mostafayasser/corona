@@ -7,10 +7,13 @@ import './screens/main_screen.dart';
 import './screens/HomePage.dart';
 import './screens/forget_password.dart';
 import './screens/map_screen.dart';
-import './screens/test_screen.dart';
+import './screens/choice_screen.dart';
+import './screens/vol_screen.dart';
+import './screens/Instructions.dart';
 import './screens/dashboard_screen.dart';
+import './screens/request_help_screen.dart';
+import './screens/transportation_requests_screen.dart';
 import 'models/app_localizations.dart';
-import 'package:device_simulator/device_simulator.dart';
 
 const bool debugEnableDeviceSimulator = true;
 
@@ -89,10 +92,7 @@ class _MyAppState extends State<MyApp> {
       },
       supportedLocales: EasyLocalization.of(context).supportedLocales,
       locale: EasyLocalization.of(context).locale,
-      home: DeviceSimulator(
-          brightness: Brightness.dark,
-          enable: debugEnableDeviceSimulator,
-          child: MainScreen(changeLocale: changeLocale)),
+      home: MainScreen(changeLocale: changeLocale),
       routes: {
         LoginScreen.route: (ctx) => LoginScreen(),
         SignupScreen.route: (ctx) => SignupScreen(),
@@ -104,8 +104,12 @@ class _MyAppState extends State<MyApp> {
             ),
         ForgetPasswordScreen.route: (ctx) => ForgetPasswordScreen(),
         MapScreen.route: (ctx) => MapScreen(),
-        TestScreen.route: (ctx) => TestScreen(),
+        Instructions.route: (ctx) => Instructions(),
         DashboardScreen.route: (ctx) => DashboardScreen(),
+        ChoiceScreen.route: (ctx) => ChoiceScreen(),
+        VolunteerScreen.route: (ctx) => VolunteerScreen(),
+        RequestHelpScreen.route : (ctx) => RequestHelpScreen(),
+        TransportationRequestScreen.route : (ctx) => TransportationRequestScreen(),
       },
     );
   }

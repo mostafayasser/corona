@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import '../models/app_localizations.dart';
 import '../screens/Diagnosis.dart';
 import '../screens/map_screen.dart';
+import './main_screen.dart';
+import './choice_screen.dart';
 
 class HomePage extends StatefulWidget {
   static const route = "/HomePage";
@@ -61,10 +63,18 @@ class HomePageState extends State<HomePage> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.07,
                     ),
-                    buildSubmitButton(
-                        context,
-                        AppLocalizations.of(context).translate('language'),
-                        null),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        buildSubmitButton(
+                            context,
+                            AppLocalizations.of(context).translate('language'),
+                            null),
+                        IconButton(
+                            icon: Icon(Icons.exit_to_app),
+                            onPressed: () => Navigator.of(context).pushReplacementNamed(MainScreen.route))
+                      ],
+                    ),
                   ],
                 ),
                 Row(
@@ -168,6 +178,20 @@ class HomePageState extends State<HomePage> {
                           color: Colors.transparent),
                     ),
                   ],
+                ),
+                Positioned(
+                  bottom: 15,
+                  left: 120,
+                  child: InkWell(
+                    onTap: () =>
+                        Navigator.of(context).pushNamed(ChoiceScreen.route),
+                    child: Image.asset(
+                      "assets/images/vol_comm.png",
+                      fit: BoxFit.cover,
+                      width: 103,
+                      height: 110,
+                    ),
+                  ),
                 )
               ],
             ),

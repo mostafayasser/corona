@@ -146,17 +146,17 @@ class _SignupScreenState extends State<SignupScreen> {
               isLoading = true;
             });
             registerUser(User(
-                    email:"",// _emailController.text,
-                    password:"",// _passwordController.text,
-                    phone:"",// _phoneNumberController.text,
-                    firstName:"",// _firstNameController.text,
-                    middleName: "",//_middleNameController.text,
-                    lastName: "",//_lastNameController.text,
-                    nationalID: "",//_nationalIDController.text,
+                    email: _emailController.text,
+                    password: _passwordController.text,
+                    phone: _phoneNumberController.text,
+                    firstName: _firstNameController.text,
+                    middleName: _middleNameController.text,
+                    lastName: _lastNameController.text,
+                    nationalID: _nationalIDController.text,
                     status: "0xFF00FF00",
                     score: 0,
-                    age: 10,//int.parse(_ageController.text),
-                    gender: ""//_genderController
+                    age: int.parse(_ageController.text),
+                    gender: _genderController
                     ))
                 .then((value) {
               setState(() {

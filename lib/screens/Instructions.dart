@@ -7,6 +7,7 @@ import '../models/app_localizations.dart';
 import './HomePage.dart';
 
 class Instructions extends StatelessWidget {
+  static const route = "/inst";
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -24,7 +25,8 @@ class Instructions extends StatelessWidget {
             );
           },
           indicatorLayout: PageIndicatorLayout.NONE,
-          autoplay: false,
+          autoplay: true,
+          autoplayDelay: 4000,
           itemCount: images.length,
           pagination: new SwiperPagination(margin: EdgeInsets.only(bottom: 100),
           builder: new DotSwiperPaginationBuilder(

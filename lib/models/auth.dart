@@ -80,6 +80,7 @@ Future<User> getCurrentUser() async {
   String email = currentUser.email;
   DocumentSnapshot doc =
       await _firestore.collection('users').document('$email').get();
+      
   User user = User(
       email: doc.data['email'],
       password: doc.data['password'],

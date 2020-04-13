@@ -37,6 +37,12 @@
     "forgot_password" : "Forgot your password?",
     "dont_have_account" : "Don't have account? Sign up",
     "reset_password" : "Reset password",
-    "reset_password_message" : "Password sent to mail"
+    "reset_password_message" : "Password sent to mail",
+    "transfer_patients" : "Transfer patients",
+    "community_volunteer" : "Community volunteer",
+    "telecom_volunteer" : "Telecommunication volunteer",
+    "select_item" : "Select item",
+    "description" : "Write down what you need.",
+    "send_request" : "Send request"
 
 }

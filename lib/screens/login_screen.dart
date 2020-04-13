@@ -1,4 +1,4 @@
-import 'package:corona/screens/HomePage.dart';
+import 'package:corona/screens/Instructions.dart';
 import 'package:flutter/material.dart';
 import './signup_screen.dart';
 import './main_screen.dart';
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 return showAlertDialog(context, errorMess,
                     AppLocalizations.of(context).translate('error'));
               else {
-                Navigator.of(context).pushReplacementNamed(HomePage.route);
+                Navigator.of(context).pushReplacementNamed(Instructions.route);
 
                 _emailController.text = "";
                 _passwordController.text = "";

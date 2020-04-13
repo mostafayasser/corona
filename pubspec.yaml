@@ -63,6 +63,17 @@ flutter:
   assets:
     - assets/images/electropi1++.png
     - assets/images/HeatMap.png
+    - assets/images/vol.png
+    - assets/images/vol1.png
+    - assets/images/vol2.png
+    - assets/images/vol3.png
+    - assets/images/vol4.png
+    - assets/images/comm.png
+    - assets/images/help.png
+    - assets/images/tele.png
+    - assets/images/trans.png
+    - assets/images/volunt.png
+    - assets/images/vol_comm.png
     - images/q1.png
     - images/q2.png
     - images/q3.png

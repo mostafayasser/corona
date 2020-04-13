@@ -37,7 +37,13 @@
     "forgot_password" : "نسيت كلمة السر؟",
     "dont_have_account" : "لا تمتلك حسابا؟ إنشاء حساب",
     "reset_password" : "أرسل كلمة السر",
-    "reset_password_message" : "تم إرسال كلمة السر إلي البريد الإلكتروني"
+    "reset_password_message" : "تم إرسال كلمة السر إلي البريد الإلكتروني",
+    "transfer_patients" : "نقل المرضي",
+    "community_volunteer" : "تطوع مجتمعي",
+    "telecom_volunteer" : "تطوع اتصالات",
+    "select_item" : "إختار النوع",
+    "description" : "ماذا تريد أو تحتاج؟",
+    "send_request" : "إرسال الطلب"
     
 
 }
